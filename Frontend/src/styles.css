@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+
+@theme {
+  /* Color Palette - Fruit Theme */
+  --color-brand-primary: #FB923C;    /* Orange 400 */
+  --color-brand-secondary: #FFF8F0;  /* Cream */
+  --color-brand-dark: #1F1D2B;       /* Dark Text */
+  --color-brand-green: #84CC16;      /* Lime */
+  
+  /* Fonts */
+  --font-display: "Fredoka", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+
+  /* Animation */
+  --animate-fade-in-up: fadeInUp 0.5s ease-out forwards;
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-brand-dark);
+    background-color: var(--color-brand-secondary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+}
+

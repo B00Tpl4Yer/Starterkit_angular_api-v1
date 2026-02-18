@@ -1,0 +1,80 @@
+<div class="min-h-screen bg-[#FFF8F0] pt-12 pb-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Breadcrumb simple -->
+    <div class="flex items-center gap-2 text-sm text-gray-500 mb-8 font-medium">
+      <a href="/" class="hover:text-orange-500">Beranda</a>
+      <span>/</span>
+      <a href="/products" class="hover:text-orange-500">Katalog</a>
+      <span>/</span>
+      <span class="text-gray-900">{{ product.name }}</span>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+      
+      <!-- Image Gallery Section -->
+      <div>
+        <div class="aspect-square bg-gradient-to-br from-orange-100 to-yellow-100 rounded-[3rem] flex items-center justify-center relative overflow-hidden shadow-inner cursor-zoom-in group">
+           <span class="text-9xl transform group-hover:scale-125 transition-transform duration-700">{{ product.image }}</span>
+           
+           <!-- Decoration -->
+           <div class="absolute top-8 left-8 bg-white/50 backdrop-blur px-4 py-2 rounded-xl text-xs font-bold text-gray-700">
+             Premium Quality
+           </div>
+        </div>
+      </div>
+
+      <!-- Detail Info -->
+      <div class="flex flex-col justify-center">
+        <h1 class="text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-4">{{ product.name }}</h1>
+        
+        <div class="flex items-center gap-4 mb-8">
+           <div class="flex text-yellow-500 text-lg">
+             ★★★★★
+           </div>
+           <span class="text-gray-500 text-sm font-medium">({{ product.reviews }} Ulasan)</span>
+           <span class="w-1 h-1 bg-gray-300 rounded-full"></span>
+           <span class="text-green-600 text-sm font-bold bg-green-100 px-3 py-1 rounded-full">Stok Tersedia</span>
+        </div>
+
+        <div class="text-3xl font-bold text-orange-600 mb-8">
+           Rp {{ product.price.toLocaleString('id-ID') }} <span class="text-sm font-normal text-gray-400">/ bungkus</span>
+        </div>
+
+        <p class="text-gray-600 leading-relaxed mb-8 text-lg font-light">
+          {{ product.description }}
+        </p>
+
+        <!-- Specifications -->
+        <div class="grid grid-cols-2 gap-4 mb-10">
+          <div class="bg-white p-4 rounded-xl border border-gray-100">
+            <span class="block text-xs text-gray-400 mb-1">Berat Bersih</span>
+            <span class="font-bold text-gray-900">{{ product.weight }}</span>
+          </div>
+           <div class="bg-white p-4 rounded-xl border border-gray-100">
+            <span class="block text-xs text-gray-400 mb-1">Komposisi</span>
+            <span class="font-bold text-gray-900">{{ product.ingredients.join(', ') }}</span>
+          </div>
+        </div>
+
+        <!-- Add to Cart Action -->
+        <div class="flex items-center gap-4 pt-8 border-t border-gray-200">
+           <!-- Quantity -->
+           <div class="flex items-center bg-white border border-gray-200 rounded-full p-1 shadow-sm">
+             <button (click)="decrementParam()" class="w-10 h-10 flex items-center justify-center text-gray-500 hover:bg-gray-100 hover:text-orange-600 rounded-full transition-colors font-bold text-xl">-</button>
+             <span class="w-12 text-center font-bold text-gray-900">{{ quantity }}</span>
+             <button (click)="incrementParam()" class="w-10 h-10 flex items-center justify-center text-gray-500 hover:bg-gray-100 hover:text-orange-600 rounded-full transition-colors font-bold text-xl">+</button>
+           </div>
+
+           <!-- Button -->
+           <button class="flex-1 bg-gray-900 text-white font-bold h-14 rounded-full hover:bg-orange-500 transition-all shadow-lg hover:shadow-orange-200 flex items-center justify-center gap-3">
+             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+             Masukkan Keranjang
+           </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

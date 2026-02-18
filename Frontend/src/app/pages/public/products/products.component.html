@@ -1,0 +1,92 @@
+<div class="min-h-screen bg-[#FFF8F0] pt-12 pb-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-4">Katalog Buah Pilihan</h1>
+      <p class="text-xl text-gray-600">Temukan cemilan favoritmu dari koleksi terbaik kami</p>
+    </div>
+
+    <!-- Filters & Grid -->
+    <div class="grid lg:grid-cols-4 gap-8">
+      
+      <!-- Sidebar Filters (Desktop) -->
+      <div class="hidden lg:block space-y-8">
+        <div class="bg-white p-6 rounded-3xl shadow-sm border border-orange-100">
+          <h3 class="font-display font-bold text-xl mb-4 text-gray-800">Kategori</h3>
+          <ul class="space-y-3">
+            <li>
+              <button class="text-orange-600 font-semibold w-full text-left flex justify-between group">
+                Buah Kering
+                <span class="bg-orange-100 text-orange-600 py-0.5 px-2 rounded-full text-xs group-hover:bg-orange-600 group-hover:text-white transition-colors">12</span>
+              </button>
+            </li>
+             <li>
+              <button class="text-gray-600 hover:text-orange-600 w-full text-left flex justify-between group transition-colors">
+                Buah Beku
+                <span class="bg-gray-100 text-gray-500 py-0.5 px-2 rounded-full text-xs group-hover:bg-orange-100 group-hover:text-orange-600 transition-colors">5</span>
+              </button>
+            </li>
+             <li>
+              <button class="text-gray-600 hover:text-orange-600 w-full text-left flex justify-between group transition-colors">
+                Paket Hampers
+                <span class="bg-gray-100 text-gray-500 py-0.5 px-2 rounded-full text-xs group-hover:bg-orange-100 group-hover:text-orange-600 transition-colors">3</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="lg:col-span-3">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Product Card Loop -->
+          <div *ngFor="let product of products" class="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
+            
+            <!-- Discount Badge -->
+            <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full z-10">
+              Promo
+            </div>
+
+            <!-- Image Area (Placeholder) -->
+            <div class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-3xl h-48 flex items-center justify-center mb-6 relative overflow-hidden group-hover:bg-orange-100 transition-colors">
+               <span class="text-8xl transform group-hover:scale-110 transition-transform duration-500">{{ product.image }}</span>
+            </div>
+
+            <!-- Content -->
+            <div class="mb-4">
+              <div class="flex items-center gap-1 mb-2 text-yellow-400 text-sm">
+                <span class="text-yellow-400">★</span> 
+                <span class="text-gray-400 font-semibold">{{ product.rating }}</span>
+              </div>
+              <h3 class="text-xl font-bold font-display text-gray-900 mb-1">
+                {{ product.name }}
+              </h3>
+              <p class="text-sm text-gray-500 line-clamp-2">
+                {{ product.description }}
+              </p>
+            </div>
+
+            <!-- Price & Action -->
+            <div class="flex items-center justify-between mt-auto">
+              <div class="flex flex-col">
+                <span class="text-xs text-gray-400">Harga</span>
+                <span class="text-lg font-bold text-orange-600">Rp {{ product.price.toLocaleString('id-ID') }}</span>
+              </div>
+              <button class="bg-gray-900 text-white p-3 rounded-full hover:bg-orange-500 hover:rotate-12 transition-all shadow-lg">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+              </button>
+            </div>
+            
+            <!-- Hover Link Overlay -->
+            <a [routerLink]="['/products', product.id]" class="absolute inset-0 cursor-pointer"></a>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

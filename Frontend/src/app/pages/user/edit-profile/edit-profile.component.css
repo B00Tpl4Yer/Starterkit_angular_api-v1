@@ -1,0 +1,147 @@
+/* ====================================
+   Edit Profile Component Styles
+   ==================================== */
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Animation for password section expansion */
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Apply animations */
+.animate-in {
+  animation: slideInFromTop 0.3s ease-out;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Smooth rotation for expand/collapse arrow */
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+/* Input focus states */
+input:focus {
+  box-shadow: 0 0 0 4px rgba(251, 146, 60, 0.1);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  color: #9ca3af;
+}
+
+/* Error field styling */
+input.border-red-500 {
+  border-color: #ef4444;
+}
+
+input.border-red-500:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+/* Button hover effects */
+button[type="submit"]:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+button[type="submit"]:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Loading state */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Accessibility - focus visible */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #fb923c;
+  outline-offset: 2px;
+}
+
+/* Info box styling */
+.bg-blue-50 {
+  background-color: #eff6ff;
+}
+
+.border-blue-200 {
+  border-color: #bfdbfe;
+}
+
+.text-blue-600 {
+  color: #2563eb;
+}
+
+.text-blue-700 {
+  color: #1d4ed8;
+}
+
+.text-blue-800 {
+  color: #1e40af;
+}
+
+/* Divider styling */
+.border-orange-200 {
+  border-color: #fed7aa;
+}
+
+/* Password toggle button */
+button[title="Toggle password visibility"] {
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  form {
+    padding: 1.5rem 1rem;
+  }
+
+  .flex-1 {
+    min-width: 0;
+  }
+}
+
+/* Label styling */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #374151;
+  letter-spacing: 0.01em;
+}
+
+/* Help text */
+p.text-xs {
+  margin-top: 0.25rem;
+  color: #6b7280;
+}
+
+/* Collapsible section styling */
+div[class*="pl-4"] {
+  transition: all 0.3s ease-out;
+}

@@ -1,0 +1,154 @@
+/* ============================================
+   Auth Layout Component Styles
+   ============================================ */
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  :host ::ng-deep h1 {
+    font-size: 1.875rem; /* 30px */
+  }
+
+  :host ::ng-deep h2 {
+    font-size: 1.875rem;
+  }
+}
+
+/* Smooth Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom animation utilities */
+:host ::ng-deep .animate-in {
+  animation: fadeInUp 0.3s ease-out forwards;
+}
+
+:host ::ng-deep .fade-in {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+:host ::ng-deep .slide-in-from-top-2 {
+  animation: slideInFromTop 0.3s ease-out;
+}
+
+/* Form Input Styling */
+:host ::ng-deep input[type="text"],
+:host ::ng-deep input[type="email"],
+:host ::ng-deep input[type="password"] {
+  transition: all 0.2s ease;
+}
+
+:host ::ng-deep input[type="text"]:focus,
+:host ::ng-deep input[type="email"]:focus,
+:host ::ng-deep input[type="password"]:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(251, 146, 60, 0.15);
+}
+
+/* Checkbox Styling */
+:host ::ng-deep input[type="checkbox"] {
+  accent-color: #fb923c;
+}
+
+:host ::ng-deep input[type="checkbox"]:focus {
+  outline-offset: 2px;
+}
+
+/* Button Styling */
+:host ::ng-deep button[type="submit"] {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+:host ::ng-deep button[type="submit"]:not(:disabled):active {
+  transform: scale(0.95);
+}
+
+:host ::ng-deep button[type="submit"]:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+/* Loading Spinner */
+:host ::ng-deep .animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error Alert Animation */
+:host ::ng-deep [role="alert"] {
+  animation: slideInFromTop 0.3s ease-out;
+}
+
+/* Social Button Hover Effect */
+:host ::ng-deep button:not([type="submit"]) {
+  transition: all 0.2s ease;
+}
+
+:host ::ng-deep button:not([type="submit"]):hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive Spacing */
+@media (max-width: 768px) {
+  :host ::ng-deep .space-y-5 > * + * {
+    margin-top: 1.25rem;
+  }
+
+  :host ::ng-deep .space-y-6 > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Focus Visible Accessibility */
+:host ::ng-deep a:focus-visible,
+:host ::ng-deep button:focus-visible {
+  outline: 2px solid #fb923c;
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Form Container Optimization */
+:host ::ng-deep form {
+  /* Ensure proper text rendering on all devices */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* SVG Icon Smooth Transitions */
+:host ::ng-deep svg {
+  transition: color 0.2s ease;
+}
+
+/* Glass Effect Enhancement */
+:host ::ng-deep [class*="backdrop-blur"] {
+  /* Ensure hardware acceleration */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}

@@ -1,0 +1,88 @@
+/* ============================================
+   Global Toast Container Styles
+   ============================================ */
+
+/* Toast entrance animation */
+@keyframes slideInFromTopRight {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+:host ::ng-deep .animate-in {
+  animation: slideInFromTopRight 0.3s ease-out forwards;
+}
+
+:host ::ng-deep .fade-in {
+  animation: slideInFromTopRight 0.3s ease-out;
+}
+
+:host ::ng-deep .slide-in-from-top-2 {
+  animation: slideInFromTopRight 0.3s ease-out;
+}
+
+/* Toast exit animation */
+.toast-exit {
+  animation: fadeOut 0.3s ease-in forwards;
+}
+
+/* Ensure proper stacking context */
+:host {
+  z-index: 9999;
+}
+
+/* Hover effects for close button */
+:host ::ng-deep button {
+  cursor: pointer;
+}
+
+/* Success toast */
+.bg-green-50 {
+  background-color: rgba(240, 253, 244, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+/* Error toast */
+.bg-red-50 {
+  background-color: rgba(254, 242, 242, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+/* Warning toast */
+.bg-yellow-50 {
+  background-color: rgba(254, 252, 232, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+/* Info toast */
+.bg-blue-50 {
+  background-color: rgba(240, 249, 255, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+/* Smooth transitions */
+:host ::ng-deep [role="alert"] {
+  transition: all 0.3s ease;
+}
+
+/* Responsive positioning */
+@media (max-width: 640px) {
+  :host ::ng-deep .fixed {
+    left: 1rem;
+    right: 1rem;
+  }
+}
